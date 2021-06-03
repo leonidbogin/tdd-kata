@@ -12,5 +12,12 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Minimum(new int[0]);
             action.Should().ThrowExactly<ArgumentException>();
         }
+
+        [Fact]
+        public void Minimum_NullArray_ArgumentNullException()
+        {
+            Action action = () => new Stats().Minimum(null);
+            action.Should().ThrowExactly<ArgumentNullException>();
+        }
     }
 }
