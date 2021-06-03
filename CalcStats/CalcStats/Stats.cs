@@ -34,6 +34,11 @@ namespace CalcStats
 
         public int Maximum(int[] array)
         {
+            if (array is null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return 0;
         }
 

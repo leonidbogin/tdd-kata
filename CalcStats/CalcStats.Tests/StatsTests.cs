@@ -42,5 +42,12 @@ namespace CalcStats.Tests
             var actualMinimum = new Stats().Minimum(array);
             actualMinimum.Should().Be(expected);
         }
+
+        [Fact]
+        public void Maximum_EmptyArray_ArgumentException()
+        {
+            Action action = () => new Stats().Maximum(new int[0]);
+            action.Should().ThrowExactly<ArgumentException>();
+        }
     }
 }
