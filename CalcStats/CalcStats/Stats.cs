@@ -67,7 +67,8 @@ namespace CalcStats
                 throw new ArgumentException();
             }
 
-            return 0;
+            var length = 1;
+            return length;
         }
 
         public double Average(int[] array)

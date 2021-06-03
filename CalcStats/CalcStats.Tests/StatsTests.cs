@@ -93,5 +93,17 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Length(null);
             action.Should().ThrowExactly<ArgumentNullException>();
         }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(1, -4)]
+        [InlineData(1, 0)]
+        [InlineData(1, int.MaxValue)]
+        [InlineData(1, int.MinValue)]
+        public void Length_OneElement_FindLength(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Length(array);
+            actualMinimum.Should().Be(expected);
+        }
     }
 }
