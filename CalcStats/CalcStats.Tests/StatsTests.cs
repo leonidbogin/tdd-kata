@@ -68,5 +68,16 @@ namespace CalcStats.Tests
             var actualMinimum = new Stats().Maximum(array);
             actualMinimum.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(9, 1, -9, 9, 8, 4, 3, 0, 4, 6, 5)]
+        [InlineData(0, -1, -9, -9, -8, 0, -3, 0, -8, -6, -5)]
+        [InlineData(int.MaxValue, int.MaxValue, int.MinValue, int.MaxValue)]
+        [InlineData(-1, -1, -1)]
+        public void Maximum_Array_FindMaximum(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Maximum(array);
+            actualMinimum.Should().Be(expected);
+        }
     }
 }

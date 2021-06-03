@@ -45,6 +45,13 @@ namespace CalcStats
             }
 
             var maximum = array[0];
+            for (var i = 1; i < array.Length; i++)
+            {
+                if (maximum < array[i])
+                {
+                    maximum = array[i];
+                }
+            }
             return maximum;
         }
 
