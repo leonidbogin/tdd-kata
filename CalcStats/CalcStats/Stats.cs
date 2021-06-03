@@ -10,6 +10,11 @@ namespace CalcStats
     {
         public int Minimum(int[] array)
         {
+            if (array is null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return 0;
         }
 
