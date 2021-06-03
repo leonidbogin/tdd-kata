@@ -86,5 +86,12 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Length(new int[0]);
             action.Should().ThrowExactly<ArgumentException>();
         }
+
+        [Fact]
+        public void Length_NullArray_ArgumentNullException()
+        {
+            Action action = () => new Stats().Length(null);
+            action.Should().ThrowExactly<ArgumentNullException>();
+        }
     }
 }

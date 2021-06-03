@@ -57,6 +57,11 @@ namespace CalcStats
 
         public int Length(int[] array)
         {
+            if (array is null)
+            {
+                throw new ArgumentNullException();
+            }
+
             if (array.Length == 0)
             {
                 throw new ArgumentException();
