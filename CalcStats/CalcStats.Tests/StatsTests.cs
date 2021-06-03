@@ -32,6 +32,15 @@ namespace CalcStats.Tests
             actualMinimum.Should().Be(expected);
         }
 
-
+        [Theory]
+        [InlineData(0, 1, 9, 9, 8, 4, 3, 0, 4, 6, 5)]
+        [InlineData(-8, 1, 9, 9, -8, 0, 3, 0, -8, 6, 5)]
+        [InlineData(int.MinValue, int.MaxValue, int.MinValue, int.MaxValue)]
+        [InlineData(-1, -1, -1)]
+        public void Minimum_Array_FindMinimum(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Minimum(array);
+            actualMinimum.Should().Be(expected);
+        }
     }
 }

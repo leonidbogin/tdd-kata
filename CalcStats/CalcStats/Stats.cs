@@ -20,7 +20,16 @@ namespace CalcStats
                 throw new ArgumentException();
             }
 
-            return array[0];
+            var minimum = array[0];
+            for (var i = 1; i < array.Length; i++)
+            {
+                if (minimum > array[i])
+                {
+                    minimum = array[i];
+                }
+            }
+
+            return minimum;
         }
 
         public int Maximum(int[] array)
