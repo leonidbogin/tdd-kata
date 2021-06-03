@@ -49,5 +49,12 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Maximum(new int[0]);
             action.Should().ThrowExactly<ArgumentException>();
         }
+
+        [Fact]
+        public void Maximum_NullArray_ArgumentNullException()
+        {
+            Action action = () => new Stats().Maximum(null);
+            action.Should().ThrowExactly<ArgumentNullException>();
+        }
     }
 }
