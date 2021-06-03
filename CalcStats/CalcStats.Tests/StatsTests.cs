@@ -19,5 +19,19 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Minimum(null);
             action.Should().ThrowExactly<ArgumentNullException>();
         }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(-4, -4)]
+        [InlineData(0, 0)]
+        [InlineData(int.MaxValue, int.MaxValue)]
+        [InlineData(int.MinValue, int.MinValue)]
+        public void Minimum_OneElement_FindMinimum(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Minimum(array);
+            actualMinimum.Should().Be(expected);
+        }
+
+
     }
 }
