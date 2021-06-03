@@ -79,5 +79,12 @@ namespace CalcStats.Tests
             var actualMinimum = new Stats().Maximum(array);
             actualMinimum.Should().Be(expected);
         }
+
+        [Fact]
+        public void Length_EmptyArray_ArgumentException()
+        {
+            Action action = () => new Stats().Length(new int[0]);
+            action.Should().ThrowExactly<ArgumentException>();
+        }
     }
 }
