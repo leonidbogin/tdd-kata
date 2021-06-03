@@ -56,5 +56,17 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Maximum(null);
             action.Should().ThrowExactly<ArgumentNullException>();
         }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(-4, -4)]
+        [InlineData(0, 0)]
+        [InlineData(int.MaxValue, int.MaxValue)]
+        [InlineData(int.MinValue, int.MinValue)]
+        public void Maximum_OneElement_FindMaximum(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Maximum(array);
+            actualMinimum.Should().Be(expected);
+        }
     }
 }

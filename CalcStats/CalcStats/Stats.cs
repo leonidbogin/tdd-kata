@@ -44,7 +44,8 @@ namespace CalcStats
                 throw new ArgumentException();
             }
 
-            return 0;
+            var maximum = array[0];
+            return maximum;
         }
 
         public int Length(int[] array)
