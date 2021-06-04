@@ -146,7 +146,7 @@ namespace CalcStats.Tests
         [InlineData(-4.9, -1, -9, -9, -8, 0, -3, 0, -8, -6, -5)]
         [InlineData(-0.5, int.MinValue, int.MaxValue)]
         [InlineData(-1, -1, -1)]
-        public void Average_Array_FindMaximum(double expected, params int[] array)
+        public void Average_Array_CalcAverage(double expected, params int[] array)
         {
             var actualMinimum = new Stats().Average(array);
             actualMinimum.Should().Be(expected);
