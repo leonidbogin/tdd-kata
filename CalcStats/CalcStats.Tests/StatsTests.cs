@@ -95,15 +95,15 @@ namespace CalcStats.Tests
         }
 
         [Theory]
-        [InlineData(1, 1)]
-        [InlineData(1, -4)]
-        [InlineData(1, 0)]
-        [InlineData(1, int.MaxValue)]
-        [InlineData(1, int.MinValue)]
-        public void Length_OneElement_CalcLength(int expected, params int[] array)
+        [InlineData(1)]
+        [InlineData(-4)]
+        [InlineData(0)]
+        [InlineData(int.MaxValue)]
+        [InlineData(int.MinValue)]
+        public void Length_OneElement_1(params int[] array)
         {
             var actualMinimum = new Stats().Length(array);
-            actualMinimum.Should().Be(expected);
+            actualMinimum.Should().Be(1);
         }
 
         [Theory]
