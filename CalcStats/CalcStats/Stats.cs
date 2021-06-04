@@ -67,6 +67,11 @@ namespace CalcStats
 
         public double Average(int[] array)
         {
+            if (array is null)
+            {
+                throw new ArgumentNullException();
+            }
+
             return 0;
         }
     }

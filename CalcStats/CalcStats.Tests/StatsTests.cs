@@ -114,5 +114,12 @@ namespace CalcStats.Tests
             var actualMinimum = new Stats().Length(array);
             actualMinimum.Should().Be(expected);
         }
+
+        [Fact]
+        public void Average_NullArray_ArgumentNullException()
+        {
+            Action action = () => new Stats().Minimum(null);
+            action.Should().ThrowExactly<ArgumentNullException>();
+        }
     }
 }
