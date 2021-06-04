@@ -72,6 +72,11 @@ namespace CalcStats
                 throw new ArgumentNullException();
             }
 
+            if (array.Length == 0)
+            {
+                throw new ArgumentException();
+            }
+
             return 0;
         }
     }

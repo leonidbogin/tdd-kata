@@ -118,8 +118,15 @@ namespace CalcStats.Tests
         [Fact]
         public void Average_NullArray_ArgumentNullException()
         {
-            Action action = () => new Stats().Minimum(null);
+            Action action = () => new Stats().Average(null);
             action.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void Average_EmptyArray_ArgumentException()
+        {
+            Action action = () => new Stats().Average(new int[0]);
+            action.Should().ThrowExactly<ArgumentException>();
         }
     }
 }
