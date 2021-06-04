@@ -7,17 +7,17 @@ namespace CalcStats.Tests
     public class StatsTests
     {
         [Fact]
-        public void Minimum_EmptyArray_ArgumentException()
-        {
-            Action action = () => new Stats().Minimum(new int[0]);
-            action.Should().ThrowExactly<ArgumentException>();
-        }
-
-        [Fact]
         public void Minimum_NullArray_ArgumentNullException()
         {
             Action action = () => new Stats().Minimum(null);
             action.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void Minimum_EmptyArray_ArgumentException()
+        {
+            Action action = () => new Stats().Minimum(new int[0]);
+            action.Should().ThrowExactly<ArgumentException>();
         }
 
         [Theory]
@@ -44,17 +44,17 @@ namespace CalcStats.Tests
         }
 
         [Fact]
-        public void Maximum_EmptyArray_ArgumentException()
-        {
-            Action action = () => new Stats().Maximum(new int[0]);
-            action.Should().ThrowExactly<ArgumentException>();
-        }
-
-        [Fact]
         public void Maximum_NullArray_ArgumentNullException()
         {
             Action action = () => new Stats().Maximum(null);
             action.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void Maximum_EmptyArray_ArgumentException()
+        {
+            Action action = () => new Stats().Maximum(new int[0]);
+            action.Should().ThrowExactly<ArgumentException>();
         }
 
         [Theory]
@@ -81,17 +81,17 @@ namespace CalcStats.Tests
         }
 
         [Fact]
-        public void Length_EmptyArray_0()
-        {
-            var actualMinimum = new Stats().Length(new int[0]);
-            actualMinimum.Should().Be(0);
-        }
-
-        [Fact]
         public void Length_NullArray_ArgumentNullException()
         {
             Action action = () => new Stats().Length(null);
             action.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void Length_EmptyArray_0()
+        {
+            var actualMinimum = new Stats().Length(new int[0]);
+            actualMinimum.Should().Be(0);
         }
 
         [Theory]
