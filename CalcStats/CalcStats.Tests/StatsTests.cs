@@ -81,10 +81,10 @@ namespace CalcStats.Tests
         }
 
         [Fact]
-        public void Length_EmptyArray_ArgumentException()
+        public void Length_EmptyArray_0()
         {
-            Action action = () => new Stats().Length(new int[0]);
-            action.Should().ThrowExactly<ArgumentException>();
+            var actualMinimum = new Stats().Length(new int[0]);
+            actualMinimum.Should().Be(0);
         }
 
         [Fact]
@@ -100,7 +100,16 @@ namespace CalcStats.Tests
         [InlineData(1, 0)]
         [InlineData(1, int.MaxValue)]
         [InlineData(1, int.MinValue)]
-        public void Length_OneElement_FindLength(int expected, params int[] array)
+        public void Length_OneElement_CalcLength(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Length(array);
+            actualMinimum.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData(10, 1, -9, 9, 8, 4, 3, 0, 4, 6, 5)]
+        [InlineData(3, int.MaxValue, int.MinValue, int.MaxValue)]
+        public void Length_Array_CalcLength(int expected, params int[] array)
         {
             var actualMinimum = new Stats().Length(array);
             actualMinimum.Should().Be(expected);

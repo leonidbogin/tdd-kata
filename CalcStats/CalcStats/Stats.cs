@@ -62,13 +62,7 @@ namespace CalcStats
                 throw new ArgumentNullException();
             }
 
-            if (array.Length == 0)
-            {
-                throw new ArgumentException();
-            }
-
-            var length = 1;
-            return length;
+            return array.Length;
         }
 
         public double Average(int[] array)
