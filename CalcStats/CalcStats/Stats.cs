@@ -77,7 +77,12 @@ namespace CalcStats
                 throw new ArgumentException();
             }
 
-            return 0;
+            var sum = array[0];
+            for (var i = 1; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            return (double)sum / array.Length;
         }
     }
 }

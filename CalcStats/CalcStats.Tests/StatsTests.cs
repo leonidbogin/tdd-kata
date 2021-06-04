@@ -128,5 +128,28 @@ namespace CalcStats.Tests
             Action action = () => new Stats().Average(new int[0]);
             action.Should().ThrowExactly<ArgumentException>();
         }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(-4, -4)]
+        [InlineData(0, 0)]
+        [InlineData(int.MaxValue, int.MaxValue)]
+        [InlineData(int.MinValue, int.MinValue)]
+        public void Average_OneElement_CalcAverage(int expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Average(array);
+            actualMinimum.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData(3.1, 1, -9, 9, 8, 4, 3, 0, 4, 6, 5)]
+        [InlineData(-4.9, -1, -9, -9, -8, 0, -3, 0, -8, -6, -5)]
+        [InlineData(0.5, int.MinValue, int.MaxValue)]
+        [InlineData(-1, -1, -1)]
+        public void Average_Array_FindMaximum(double expected, params int[] array)
+        {
+            var actualMinimum = new Stats().Average(array);
+            actualMinimum.Should().Be(expected);
+        }
     }
 }
